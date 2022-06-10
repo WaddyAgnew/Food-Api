@@ -1,14 +1,30 @@
-let food = {
-    apiKey: "api key here",
-    fetchFood: function (food){
+let entree = {
+    apiKey: "2596dcbc6e764e2a9c26e2124a2faa90",
+    fetchEntree: function (food) {
         fetch(
-            "https://api.spoonacular.com/recipes/queries/analyze?&q=salmon+with+fusilli+and+no+nuts."
+            "https://api.spoonacular.com/food/search?apiKey="
+             + this.apiKey 
+             + "&query=" 
+             + food 
+             + "&number=2"
         )
         .then((response) => response.json())
         .then((data) => this.showfood(data));
     },
     showfood: function (data) {
-        const {name} = data.dishes[0];
-        console.log(name);
+        const{name,content} = data.searchResults[0].result[0];
+        document.querySelector(".food").innerText = " Delicious " + name;
+        document.querySelector(".description").innerText = "Information: " + content;
+    },
+    search: function (){
+        this.showfood(document.querySelector(".search-bar").value);
     }
-}
+
+};
+
+document.querySelector(".search button")
+.addEventListener("click", function(){
+entree.search();
+});
+
+entree.fetchEntree("Donuts");
