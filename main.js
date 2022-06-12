@@ -12,7 +12,9 @@ let entree = {
         .then((data) => this.showfood(data));
     },
     showfood: function (data) {
-        const{name,content} = data.searchResults[0].result[0];
+        const{name,content} = data.searchResults[0,[data.results]];
+        
+
         document.querySelector(".food").innerText = " Delicious " + name;
         document.querySelector(".description").innerText = "Information: " + content;
     },
@@ -27,4 +29,4 @@ document.querySelector(".search button")
 entree.search();
 });
 
-entree.fetchEntree("Donuts");
+entree.fetchEntree("apple");
