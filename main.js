@@ -2,24 +2,28 @@ let entree = {
     apiKey: "2596dcbc6e764e2a9c26e2124a2faa90",
     fetchEntree: function (food) {
         fetch(
-            "https://api.spoonacular.com/food/search?apiKey="
+            "https://api.spoonacular.com/recipes/complexSearch?apiKey="
              + this.apiKey 
              + "&query=" 
              + food 
-             + "&number=2"
+             + "&addRecipeInformation=true&number=4"
         )
         .then((response) => response.json())
         .then((data) => this.showfood(data));
     },
     showfood: function (data) {
-        const{name,content} = data.searchResults[0,[data.results]];
-        
+        const{title,summary,sourceUrl} = data.results[Math.floor(Math.random()*data.results.length)]; 
 
-        document.querySelector(".food").innerText = " Delicious " + name;
-        document.querySelector(".description").innerText = "Information: " + content;
+
+        document.querySelector(".food").innerText = " Delicious " + title;
+        document.querySelector(".description").innerHTML = "Information: " + summary;
+        document.querySelector(".ingredientList").innerHTML = sourceUrl;
     },
+
+
+
     search: function (){
-        this.showfood(document.querySelector(".search-bar").value);
+        this.fetchEntree(document.querySelector(".search-bar").value);
     }
 
 };
@@ -27,6 +31,13 @@ let entree = {
 document.querySelector(".search button")
 .addEventListener("click", function(){
 entree.search();
+});
+
+document.querySelector(".search-bar")
+.addEventListener("keyup", function (event) {
+if (event.key == "Enter"){
+    entree.search();
+}
 });
 
 entree.fetchEntree("apple");
