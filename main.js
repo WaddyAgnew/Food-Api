@@ -6,7 +6,7 @@ let entree = {
              + this.apiKey 
              + "&query=" 
              + food 
-             + "&addRecipeInformation=true&number=4"
+             + "&addRecipeInformation=true&number=20"
         )
         .then((response) => response.json())
         .then((data) => this.showfood(data));
@@ -17,6 +17,7 @@ let entree = {
 
         document.querySelector(".food").innerText = " Delicious " + title;
         document.querySelector(".description").innerHTML = "Information: " + summary;
+        document.querySelector(".description").object.style.textDecoration = "none";
         document.querySelector(".ingredientList").onclick = function () {
             location.href = sourceUrl;
         }
@@ -43,4 +44,4 @@ if (event.key == "Enter"){
 }
 });
 
-entree.fetchEntree("apple");
+//entree.fetchEntree("apple");
