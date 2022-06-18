@@ -17,14 +17,14 @@ let entree = {
 
         document.querySelector(".food").innerText = " Delicious " + title;
         document.querySelector(".description").innerHTML = "Information: " + summary;
-        document.querySelector(".description").object.style.textDecoration = "none";
         document.querySelector(".ingredientList").onclick = function () {
             location.href = sourceUrl;
         }
     
+    
     },
 
-
+        
 
     search: function (){
         this.fetchEntree(document.querySelector(".search-bar").value);
