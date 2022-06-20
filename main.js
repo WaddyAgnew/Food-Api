@@ -28,9 +28,16 @@ let entree = {
 
     search: function (){
         this.fetchEntree(document.querySelector(".search-bar").value);
+        document.querySelector(".search-bar").value = "";
     }
 
 };
+
+function resultsnotFound() {
+    document.querySelector(".food").innerHTML = " I'm sorry ";
+    document.querySelector(".description").innerHTML = "Try another flavor or sweet "; 
+    document.querySelector(".ingredientList").style.visibility = "hidden";
+}
 
 document.querySelector(".search button")
 .addEventListener("click", function(){
