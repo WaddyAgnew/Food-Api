@@ -15,22 +15,23 @@ let entree = {
         const{title,summary,sourceUrl} = data.results[Math.floor(Math.random()*data.results.length)]; 
 
 
-        if (data.title,data.summary,data.sourceUrl == data.true ){ /*still looking for a good statement*/ 
         document.querySelector(".food").innerText = " Delicious " + title;
         document.querySelector(".description").innerHTML = "Information: " + summary;
         document.querySelector(".ingredientList").onclick = function () {
             location.href = sourceUrl;
-        }
-    }
-        if (data.title == data.false ) { /* look into both */
-            document.querySelector(".food").innerHTML = " I'm sorry ";
-            document.querySelector(".description").innerHTML = "Try another flavor or sweet "; 
-            document.querySelector(".ingredientList").style.visibility = "hidden";
-        }
-    
+            }  
+        
     },
 
-        
+    resultsnotFound: function () {
+        document.querySelector(".food").innerHTML = " I'm sorry ";
+        document.querySelector(".description").innerHTML = "Try another flavor or sweet "; 
+        document.querySelector(".ingredientList").style.visibility = "hidden";
+    
+},
+
+
+    
 
     search: function (){
         this.fetchEntree(document.querySelector(".search-bar").value);
@@ -39,9 +40,12 @@ let entree = {
 
 };
 
-//function resultsnotFound() {
-    
-//}
+if (entree.showfood() = false) {
+    resultsnotFound();
+    }
+
+
+
 
 document.querySelector(".search button")
 .addEventListener("click", function(){
