@@ -23,12 +23,13 @@ let entree = {
         
     },
 
-    resultsnotFound: function () {
+  /*  resultsnotFound: function () {
         document.querySelector(".food").innerHTML = " I'm sorry ";
         document.querySelector(".description").innerHTML = "Try another flavor or sweet "; 
         document.querySelector(".ingredientList").style.visibility = "hidden";
-    
-},
+  },
+    */
+
 
 
     
@@ -40,11 +41,11 @@ let entree = {
 
 };
 
-if (entree.showfood() = false) {
+/*if (entree.showfood() = false) {
     resultsnotFound();
     }
 
-
+*/
 
 
 document.querySelector(".search button")
