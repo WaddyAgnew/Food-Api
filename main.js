@@ -22,17 +22,7 @@ let entree = {
             }  
         
     },
-
-  /*  resultsnotFound: function () {
-        document.querySelector(".food").innerHTML = " I'm sorry ";
-        document.querySelector(".description").innerHTML = "Try another flavor or sweet "; 
-        document.querySelector(".ingredientList").style.visibility = "hidden";
-  },
-    */
-
-
-
-    
+  
 
     search: function (){
         this.fetchEntree(document.querySelector(".search-bar").value);
@@ -40,12 +30,6 @@ let entree = {
     }
 
 };
-
-/*if (entree.showfood() = false) {
-    resultsnotFound();
-    }
-
-*/
 
 
 document.querySelector(".search button")
